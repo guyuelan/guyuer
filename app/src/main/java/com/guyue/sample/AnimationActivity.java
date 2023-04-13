@@ -1,10 +1,13 @@
 package com.guyue.sample;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +17,11 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.guyue.sample.animation.AnimationFactory;
+import com.guyue.sample.animation.ValueAnimationFactory;
 
 public class AnimationActivity extends AppCompatActivity {
+
+    private static final String TAG = "AnimationActivity";
 
     private LinearLayout bottomLayout;
     private Button btn_animator;
@@ -32,9 +38,20 @@ public class AnimationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Translate animation
                 startTranslate();
+                //valueAnimator
+                startValueAnimator();
             }
         });
         initBottomLayout();
+    }
+
+    private void startValueAnimator() {
+        ValueAnimationFactory.getFloatAnimator().addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(@NonNull ValueAnimator animation) {
+                Log.d(TAG, "onAnimatio1nUpdate: "+animation.getAnimatedValue());
+            }
+        });
     }
 
     private void initBottomLayout() {
@@ -54,6 +71,6 @@ public class AnimationActivity extends AppCompatActivity {
     }
 
     private void startTranslate(){
-        AnimationFactory.translateFromRightShow(animator_test, 300);
+        AnimationFactory.translateFromBottomShow(animator_test, 300);
     }
 }
