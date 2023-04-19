@@ -1,4 +1,4 @@
-package com.guyue.sample;
+package com.guyue.sample.animation;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.guyue.sample.R;
 import com.guyue.sample.animation.AnimationFactory;
 import com.guyue.sample.animation.ValueAnimationFactory;
 
@@ -36,6 +37,7 @@ public class AnimationActivity extends AppCompatActivity {
         btn_animator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "onClick: ");
                 //Translate animation
                 startTranslate();
                 //valueAnimator
