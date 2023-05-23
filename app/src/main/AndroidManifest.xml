@@ -19,12 +19,14 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true"
+            android:theme="@style/TransparentTheme">
 
-                <category android:name="android.intent.category.LAUNCHER" />
+            <intent-filter>
+                <action android:name="com.miui.video.RECOMMEND" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
         </activity>
     </application>
 
