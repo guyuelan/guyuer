@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,19 +21,19 @@ public class TestFragment extends Fragment {
         Log.d(TAG, "onCreate: ");
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Log.d(TAG, "onViewCreated: ");
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: ");
-        R.layout.galleryplus_fragment_gallery_player
-        return super.onCreateView(inflater, container, savedInstanceState);
-        
+        View vContentView = inflater.inflate(R.layout.root_fragment_layout, null);
+        return vContentView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Button button = view.findViewById(R.id.btn1);
+        Log.d(TAG, "onViewCreated: " );
     }
 
     @Override
@@ -40,4 +41,6 @@ public class TestFragment extends Fragment {
         super.onResume();
         Log.d(TAG, "onResume: ");
     }
+
+
 }
